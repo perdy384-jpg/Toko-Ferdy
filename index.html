@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#123b72">
+  <meta name="description" content="Belanja kebutuhan sembako harian dengan mudah di Toko Sembako Ferdi Jaya.">
+  <title>Toko Sembako Ferdi Jaya</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <div class="topbar">
+    Belanja kebutuhan harian lebih mudah dan hemat!
+  </div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#beranda" class="brand">
+        <span class="brand-icon">🛒</span>
+        <span>
+          <strong>TOKO SEMBAKO</strong>
+          <small>FERDI JAYA</small>
+        </span>
+      </a>
+
+      <button class="hamburger" id="menuToggle"
+        aria-label="Buka menu" aria-expanded="false">☰</button>
+
+      <nav class="nav" id="navMenu">
+        <a href="#beranda">Beranda</a>
+        <a href="#produk">Semua Produk</a>
+        <a href="#kategori">Kategori</a>
+        <a href="#tentang">Tentang Kami</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+
+      <button class="cart-button" id="openCart" aria-label="Buka keranjang">
+        🛍️ Keranjang
+        <span id="cartCount" class="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="eyebrow">SELAMAT DATANG DI FERDI JAYA</span>
+          <h1>Belanja Sembako <span>Mudah, Hemat,</span> dan Terpercaya!</h1>
+          <p>
+            Lengkapi kebutuhan dapur dan rumah tangga Anda.
+            Pilih produk favorit, masukkan ke keranjang, lalu pesan
+            dengan mudah melalui WhatsApp.
+          </p>
+          <div class="hero-actions">
+            <a href="#produk" class="btn btn-yellow">Belanja Sekarang →</a>
+            <a href="#kategori" class="btn btn-outline">Lihat Kategori</a>
+          </div>
+          <div class="hero-benefits">
+            <span>✓ Harga terjangkau</span>
+            <span>✓ Belanja praktis</span>
+            <span>✓ Pesan via WhatsApp</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-circle"></div>
+          <div class="hero-emoji">🛒</div>
+          <div class="floating-card floating-top">
+            <span>🌾</span>
+            <div><strong>Sembako Lengkap</strong><small>Kebutuhan sehari-hari</small></div>
+          </div>
+          <div class="floating-card floating-bottom">
+            <span>💛</span>
+            <div><strong>Belanja Hemat</strong><small>Mudah dari rumah</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container feature-grid">
+        <article class="feature">
+          <span>💰</span>
+          <div><h3>Harga Terjangkau</h3><p>Harga contoh yang mudah diedit.</p></div>
+        </article>
+        <article class="feature">
+          <span>📦</span>
+          <div><h3>Produk Beragam</h3><p>Kebutuhan pokok dalam satu tempat.</p></div>
+        </article>
+        <article class="feature">
+          <span>💬</span>
+          <div><h3>Pemesanan Mudah</h3><p>Pesanan dilanjutkan melalui WhatsApp.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="kategori">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">PILIH SESUAI KEBUTUHAN</span>
+            <h2>Kategori Produk</h2>
+            <p>Temukan kebutuhan sehari-hari dengan cepat.</p>
+          </div>
+        </div>
+        <div class="category-grid" id="categoryGrid"></div>
+      </div>
+    </section>
+
+    <section class="promo-banner">
+      <div class="container promo-inner">
+        <div>
+          <span class="eyebrow">PROMO PILIHAN</span>
+          <h2>Belanja Kebutuhan Dapur, Lebih Praktis!</h2>
+          <p>Periksa produk berlabel promo dan pilih kebutuhan Anda.</p>
+        </div>
+        <a href="#produk" class="btn btn-yellow">Lihat Produk →</a>
+      </div>
+    </section>
+
+    <section class="section products-section" id="produk">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">PILIHAN UNTUK ANDA</span>
+            <h2>Produk Sembako</h2>
+            <p>Temukan produk yang Anda butuhkan.</p>
+          </div>
+        </div>
+
+        <div class="product-toolbar">
+          <div class="search-box">
+            <span>🔎</span>
+            <input id="searchInput" type="search"
+              placeholder="Cari beras, minyak, gula..."
+              aria-label="Cari produk">
+          </div>
+
+          <select id="sortSelect" aria-label="Urutkan produk">
+            <option value="default">Urutan standar</option>
+            <option value="low">Harga termurah</option>
+            <option value="high">Harga termahal</option>
+            <option value="name">Nama A–Z</option>
+          </select>
+
+          <label class="promo-filter">
+            <input type="checkbox" id="promoOnly">
+            Hanya promo
+          </label>
+        </div>
+
+        <div class="active-filter">
+          <span id="activeCategory">Semua produk</span>
+          <button id="resetFilters" class="text-button">Reset filter</button>
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+        <p id="emptyProducts" class="empty-state hidden">
+          Produk tidak ditemukan. Coba kata kunci atau kategori lain.
+        </p>
+      </div>
+    </section>
+
+    <section class="section about-section" id="tentang">
+      <div class="container about-grid">
+        <div class="about-art">
+          <div class="about-art-circle">🏪</div>
+          <span class="about-sticker">Belanja mudah!</span>
+        </div>
+        <div>
+          <span class="eyebrow">TENTANG KAMI</span>
+          <h2>Teman Belanja Kebutuhan Harian Anda</h2>
+          <p>
+            Toko Sembako Ferdi Jaya merupakan nama toko untuk website
+            ini. Website dirancang sebagai sarana katalog kebutuhan
+            pokok agar pelanggan dapat melihat produk dan menyusun
+            pesanan dengan lebih praktis.
+          </p>
+          <p class="sample-note">
+            Catatan: deskripsi, alamat, jam buka, harga, dan stok pada
+            website ini merupakan data contoh. Sesuaikan dengan
+            informasi toko yang sebenarnya sebelum dipublikasikan.
+          </p>
+          <a href="#kontak" class="btn btn-primary">Informasi Toko</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="kontak">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">HUBUNGI KAMI</span>
+            <h2>Informasi Toko</h2>
+            <p>Ganti informasi contoh berikut dengan data toko Anda.</p>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card">
+            <span>📍</span><h3>Alamat</h3>
+            <p id="storeAddress"></p>
+          </article>
+          <article class="contact-card">
+            <span>⏰</span><h3>Jam Operasional</h3>
+            <p id="storeHours"></p>
+          </article>
+          <article class="contact-card">
+            <span>📞</span><h3>WhatsApp</h3>
+            <p id="storePhone"></p>
+            <a id="contactWhatsApp" href="#" target="_blank" rel="noopener">Hubungi toko →</a>
+          </article>
+        </div>
+        <a id="mapLink" class="map-link" href="#" target="_blank" rel="noopener">
+          Lihat lokasi di Google Maps →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#beranda" class="brand footer-brand">
+        <span class="brand-icon">🛒</span>
+        <span><strong>TOKO SEMBAKO</strong><small>FERDI JAYA</small></span>
+      </a>
+      <p>© <span id="currentYear"></span> Toko Sembako Ferdi Jaya.</p>
+      <a href="#beranda">Kembali ke atas ↑</a>
+    </div>
+  </footer>
+
+  <!-- Panel keranjang -->
+  <div class="overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer"
+    role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="drawer-header">
+      <div><h2 id="cartTitle">Keranjang Belanja</h2><p>Periksa produk pilihan Anda.</p></div>
+      <button class="icon-button" id="closeCart" aria-label="Tutup keranjang">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="total-row"><span>Subtotal</span><strong id="cartSubtotal">Rp0</strong></div>
+      <button class="btn btn-primary btn-full" id="checkoutButton">Lanjut Checkout →</button>
+      <button class="btn btn-light btn-full" id="continueShopping">Lanjut Belanja</button>
+    </div>
+  </aside>
+
+  <!-- Dialog checkout -->
+  <div class="modal-overlay" id="checkoutModal">
+    <section class="checkout-modal" role="dialog" aria-modal="true"
+      aria-labelledby="checkoutTitle">
+      <div class="drawer-header">
+        <div><h2 id="checkoutTitle">Checkout Pesanan</h2><p>Lengkapi informasi pesanan.</p></div>
+        <button class="icon-button" id="closeCheckout" aria-label="Tutup checkout">✕</button>
+      </div>
+
+      <form id="checkoutForm">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="customerName">Nama lengkap *</label>
+            <input id="customerName" name="customerName" required
+              maxlength="100" autocomplete="name" placeholder="Nama Anda">
+          </div>
+          <div class="form-field">
+            <label for="customerPhone">Nomor telepon *</label>
+            <input id="customerPhone" name="customerPhone" required
+              type="tel" maxlength="20" autocomplete="tel"
+              placeholder="08xxxxxxxxxx">
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="customerAddress">Alamat lengkap *</label>
+          <textarea id="customerAddress" name="customerAddress" required
+            maxlength="500" rows="3" autocomplete="street-address"
+            placeholder="Nama jalan, desa, kecamatan, dan patokan"></textarea>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="deliveryMethod">Metode pengiriman</label>
+            <select id="deliveryMethod" name="deliveryMethod">
+              <option value="pickup">Ambil di toko</option>
+              <option value="delivery">Diantar</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="paymentMethod">Metode pembayaran</label>
+            <select id="paymentMethod" name="paymentMethod">
+              <option value="cod">Tunai saat pengambilan/pengantaran</option>
+              <option value="transfer">Transfer manual</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="orderNotes">Catatan pesanan (opsional)</label>
+          <textarea id="orderNotes" name="orderNotes" maxlength="500"
+            rows="2" placeholder="Catatan tambahan untuk toko"></textarea>
+        </div>
+
+        <div class="shipping-note" id="shippingNote"></div>
+
+        <div class="order-summary">
+          <h3>Ringkasan Pesanan</h3>
+          <div id="checkoutItems"></div>
+          <div class="total-row"><span>Subtotal</span><strong id="checkoutSubtotal">Rp0</strong></div>
+          <div class="total-row"><span>Biaya pengiriman</span><strong id="shippingCost">Rp0</strong></div>
+          <div class="total-row grand-total"><span>Total pembayaran</span><strong id="checkoutTotal">Rp0</strong></div>
+        </div>
+
+        <p class="checkout-disclaimer">
+          Pesanan akan disiapkan sebagai pesan WhatsApp. Pesanan belum
+          tercatat di server dan perlu dikonfirmasi oleh pihak toko.
+        </p>
+
+        <button type="submit" class="btn btn-primary btn-full">
+          Pesan Sekarang via WhatsApp →
+        </button>
+      </form>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>
